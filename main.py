@@ -14,6 +14,8 @@ r = requests.get(url1,headers={"Content-Type":"application/json"},allow_redirect
 
 pattern = re.compile("href=['\"]([^\"'>]*?)['\"].*?",re.S)
 
-url2 = re.findall(pattern,r.text)
+url2 = re.search(pattern,r.text)
 
-print(url2[0])
+print(url2.group(1))
+
+
